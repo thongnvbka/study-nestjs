@@ -57,8 +57,8 @@ import { BullModule } from '@nestjs/bull';
       imports: [ConfigModule],
       useFactory: async (config: ConfigService) => ({
         redis: {
-          host: config.get('REDIS_HOST'),
-          port: config.get('REDIS_PORT'),
+          host: 'localhost', //config.get('REDIS_HOST'),
+          port: 6379, //config.get('REDIS_PORT'),
           // username: config.get('REDIS_USERNAME'),
           password: config.get('REDIS_PASSWORD'),
         },
@@ -66,8 +66,8 @@ import { BullModule } from '@nestjs/bull';
       inject: [ConfigService],
     }),
     UserModule,
-    MediaModule,
-    SubscriberModule,
+    // MediaModule,
+    // SubscriberModule,
   ],
   controllers: [AppController],
   providers: [
